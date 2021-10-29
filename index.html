@@ -3,6 +3,57 @@
 </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+  
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
 .cont{
 margin-top:50px;
 background-color:yellow;
@@ -37,6 +88,26 @@ a{ text-decoration:none; color: white; font-size:20px; font-family:gulim; margin
 <div class="navbar">
 <a href="2.html">buissnes</a>
 <a href="upload.php">Upload </a>
-<a href="3.html">Social Medias</a>
+<a onclick="openNav()">Social Medias</a>
 </div>
+            
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="#">FaceBook</a>
+    <a href="#">Youtube</a>
+    <a href="#">Instagram</a>
+    <a href="#">Twiter</a>
+  </div>
+</div>
+  
+<script>
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+</script>
 </body>
